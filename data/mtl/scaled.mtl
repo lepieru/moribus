@@ -1,0 +1,6 @@
+#
+# scaled.mtl
+#
+
+newmtl scaled
+map_Kd ../textures/scaled3.jpg

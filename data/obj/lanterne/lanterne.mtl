@@ -1,0 +1,10 @@
+# Blender3D MTL File: lanterne.blend
+# Material Count: 2
+
+newmtl Material
+map_Kd granit2.jpg
+
+newmtl Material_granit2.jpg
+map_Kd granit2.jpg
+
+

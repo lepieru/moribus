@@ -1,0 +1,6 @@
+#
+# dante.mtl
+#
+
+newmtl dante
+map_Kd ../textures/dante.jpg

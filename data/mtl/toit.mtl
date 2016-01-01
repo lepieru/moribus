@@ -1,0 +1,6 @@
+#
+# toit.mtl
+#
+
+newmtl toit
+map_Kd ../textures/toit.jpg

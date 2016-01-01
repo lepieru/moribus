@@ -1,0 +1,6 @@
+#
+# gris.mtl
+#
+
+newmtl gris
+map_Kd ../textures/gris.jpg

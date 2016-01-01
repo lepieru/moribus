@@ -1,0 +1,6 @@
+#
+# marron.mtl
+#
+
+newmtl marron
+map_Kd ../textures/marron.jpg

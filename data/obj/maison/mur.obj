@@ -1,0 +1,95 @@
+mtllib ../../mtl/dante.mtl
+mtllib ../../mtl/brique.mtl
+vt 0.0 0.0
+vt 0.0 1.0
+vt 1.0 0.0
+vt 1.0 1.0
+
+usemtl brique
+
+#Murs exterieurs
+
+# Mur gauche
+v 0.0 0.0 0.0
+v 0.0 0.0 9.0
+v 0.0 26.0 0.0
+v 0.0 26.0 9.0
+
+f 1/1 2/3 3/2
+f 2/3 4/4 3/2
+
+usemtl dante
+f 3/2 2/3 1/1
+f 2/3 3/2 4/4
+
+#Mur haut garden
+v 3.0 26.0 0.0
+v 3.0 26.0 9.0
+
+usemtl brique
+f 3/1 4/3 5/2
+f 4/3 6/4 5/2
+
+usemtl dante
+f 5/2 4/3 3/1
+f 4/3 5/2 6/4
+
+#Mur droit garden
+v 3.0 20.0 0.0
+v 3.0 20.0 9.0
+
+usemtl brique
+f 5/1 6/3 7/2
+f 6/3 8/4 7/2
+
+usemtl dante
+f 7/2 6/3 5/1
+f 6/3 7/2 8/4
+
+#Mur haut
+v 50.0 20.0 0.0
+v 50.0 20.0 9.0
+
+usemtl brique
+f 7/1 8/3 9/2
+f 8/3 10/4 9/2
+
+usemtl dante
+f 9/2 8/3 7/1
+f 8/3 9/2 10/4
+
+#Mur droit
+v 50.0 0.0 0.0
+v 50.0 0.0 9.0
+
+usemtl brique
+f 9/1 10/3 11/2
+f 10/3 12/4 11/2
+
+usemtl dante
+f 11/2 10/3 9/1 
+f 10/3 11/2 12/4
+
+#Mur bas
+
+usemtl brique
+f 11/1 12/3 1/2
+f 12/3 2/4 1/2
+
+usemtl dante
+f 1/2 12/3 11/1
+f 12/3 1/2 2/4
+
+#Mur interieur garden
+v 0.0 20.0 0.0
+v 0.0 20.0 9.0
+v 2.0 20.0 0.0
+v 2.0 20.0 9.0
+
+usemtl dante
+
+f 13/1 14/3 15/2
+f 14/3 15/2 16/4
+
+f 15/2 14/3 13/1
+f 14/3 16/4 15/2

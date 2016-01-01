@@ -1,0 +1,10 @@
+# Blender3D MTL File: <memory>
+# Material Count: 2
+newmtl arbre1.003_arbre1.png
+map_Kd arbre1.png
+
+
+newmtl arbre2.003_arbre2.png
+map_Kd arbre2.png
+
+

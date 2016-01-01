@@ -1,0 +1,6 @@
+#
+# pilier.mtl
+#
+
+newmtl pilier
+map_Kd ../textures/moquette.jpg

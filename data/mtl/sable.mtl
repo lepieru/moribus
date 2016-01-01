@@ -1,0 +1,6 @@
+#
+# sable.mtl
+#
+
+newmtl sable
+map_Kd ../textures/sable.png

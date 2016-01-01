@@ -1,0 +1,6 @@
+#
+# brique.mtl
+#
+
+newmtl brique
+map_Kd ../textures/scaled4.jpg

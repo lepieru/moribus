@@ -1,0 +1,6 @@
+#
+# water.mtl
+#
+
+newmtl water
+map_Kd ../textures/water2.jpg

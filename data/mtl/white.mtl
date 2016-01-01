@@ -1,0 +1,6 @@
+#
+# white.mtl
+#
+
+newmtl white
+map_Kd ../textures/white.png

@@ -1,0 +1,6 @@
+#
+# floor.mtl
+#
+
+newmtl floor
+map_Kd ../textures/015chenef.jpg
