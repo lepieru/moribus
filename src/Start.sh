@@ -1,2 +1,0 @@
-python -OO main.py
-
