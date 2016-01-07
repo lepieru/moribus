@@ -8,7 +8,7 @@ import pyglet
 from pyglet.gl import *
 #from OpenGL.GLU import *
 #from OpenGL.GL import *
-import Image
+from PIL import Image
 import os.path
 import sys
 import math
@@ -27,7 +27,7 @@ class CatalogueTextures:
 
     def chargerTexture(self, nom):
 
-        if self.catalogue.has_key(nom):
+        if nom in self.catalogue:
             return self.catalogue[nom]
         else:
             image = pyglet.image.load(nom)
@@ -119,7 +119,7 @@ class AbstractModel(object):
             self.displayListID = None
 
         # Delete any textures we used
-        for material in self.materials.itervalues():
+        for material in self.materials.values():
             if material.textureID is not None:
                 glDeleteTextures(material.textureID)
 
@@ -215,7 +215,7 @@ class WavefrontModel(AbstractModel):
 
         material = None
         try:
-            fileHandle = file(fileName)
+            fileHandle = open(fileName)
         except IOError:
             print("Failed to open MTL file: %s" % fileName)
             return
@@ -274,7 +274,7 @@ class WavefrontModel(AbstractModel):
         self.FreeResources()
 
         currentface = None
-        fileHandle = file(fileName)
+        fileHandle = open(fileName)
         for line in fileHandle:
             # Parse command and data from each line
             words = line.split()

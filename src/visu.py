@@ -20,7 +20,7 @@ class TextureCatalog(object):
 
     def loadTexture(self, nom, alias=None):
 
-        if self.catalog.has_key(nom):
+        if nom in self.catalog:
             if alias != None:
                 self.catalog[alias] = self.catalog[nom]
             return self.catalog[nom]
