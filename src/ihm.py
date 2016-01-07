@@ -77,7 +77,7 @@ class Wimp :
 
 
 	def on_mouse_drag(self,x,y,dx,dy):
-		#print "DX = ", dx
+		#print("DX = ", dx)
 		if dx < -1 : 
 			self.camera.tourner(math.pi/180.0)
 		elif dx > 1 : 

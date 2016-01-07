@@ -83,7 +83,7 @@ def updateLent(dt):
 import sys
 
 if __name__ == "__main__":
-	print ">> ", sys.argv
+	print(">> ", sys.argv)
 	setup()
 	pyglet.clock.schedule_interval(updateRapide, 1.0/30.0)
 	pyglet.clock.schedule_interval(updateLent,1.0/10.0)

@@ -93,11 +93,11 @@ class Dijkstra :
 
 	def chercher(self, ori, ext):
 
-		# print "Pour aller de ", ori, " a ", ext
+		# print("Pour aller de ", ori, " a ", ext)
 		
 		n = len(self.graphe.sommets)
 
-		# print "Nombre de sommets : ", n
+		# print("Nombre de sommets : ", n)
 		
 		n_ori = self.graphe.sommets[ori]
 		n_ori.cout = 0.0 
@@ -120,7 +120,7 @@ class Dijkstra :
 		
 		encore = True
 
-		# print sommets
+		# print(sommets)
 		
 
 		s0 = ori
@@ -129,19 +129,19 @@ class Dijkstra :
 			# Mise a jour des successeurs du sommet courant
 			c0 = sommets[s0].cout
 			sucs = graphe.successeurs(s0)
-			# print "Sommet courant : ", s0
+			# print("Sommet courant : ", s0)
 			for e in sucs :
 				n_ext = sommets[e]
 				if n_ext.marque == False :
-					# print "Examen de ", e
+					# print("Examen de ", e)
 					cout_ext = c0 + graphe.coutArc(s0,e)
 					if cout_ext < n_ext.cout:
-						# print "Mise a jour de ", e
+						# print("Mise a jour de ", e)
 						n_ext.cout = cout_ext
 						n_ext.pred = s0
 			l = [(nom,sommets[nom].cout) for nom in sommets if sommets[nom].marque==False]
 			l.sort(cmpCout)
-			# print l
+			# print(l)
 
 			# Selection du prochain sommet courant
 			# nom,cout = l[0]
@@ -150,7 +150,7 @@ class Dijkstra :
  
 			if len(l)>0 : 
 				x = l[0]
-				# print ">> ", x[0]
+				# print(">> ", x[0])
 				sommets[x[0]].marque = True
 				s0 = x[0]
 			else:
@@ -161,7 +161,7 @@ class Dijkstra :
 		# Reconstituer le chemin
 
 		chemin = []
-		# print "Pour aller de ", ori, " a ", ext
+		# print("Pour aller de ", ori, " a ", ext)
 		s0 = ext
 		while s0 != None : 
 			chemin.append(s0)
@@ -212,10 +212,10 @@ if __name__ == "__main__":
 
 	unGraphe = lireGrapheNavigation("graphe.nav")
 	dij = Dijkstra(unGraphe)
-	print unGraphe.coordonnees(dij.chercher("p0","p3"))
-	print dij.trouverChemin(de="p0",a="p3")
+	print(unGraphe.coordonnees(dij.chercher("p0","p3")))
+	print(dij.trouverChemin(de="p0",a="p3"))
 
-	print unGraphe
+	print(unGraphe)
 
 
 	

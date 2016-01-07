@@ -56,7 +56,7 @@ class Activite :
   
   def actualiser(self,t,dt):
     if self.actif : 
-      print "ACTIVITE : ", t, " - ", dt
+      print("ACTIVITE : ", t, " - ", dt)
       
 
 class Fou(Activite):

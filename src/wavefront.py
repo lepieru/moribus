@@ -31,7 +31,7 @@ class CatalogueTextures :
 			return self.catalogue[nom]
 		else:
 			image = pyglet.image.load(nom)
-			print ">>>>> TEXTURE ", nom, " CHARGEE"
+			print(">>>>> TEXTURE ", nom, " CHARGEE")
 			texture = image.get_texture()
 			glBindTexture(GL_TEXTURE_2D,texture.id)
 			glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR)
@@ -144,7 +144,7 @@ class AbstractModel(object):
 
 			#if material.Kd:
 			#	glColor4f(material.Kd[0], material.Kd[1],material.Kd[2],1.0)
-			#	print material.Kd
+			#	print(material.Kd)
 			#	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, material.Kd)
 
 			#if material.Ks:
@@ -208,7 +208,7 @@ class WavefrontModel(AbstractModel):
 		try:
 			fileHandle = file(fileName)
 		except IOError:
-			print "Failed to open MTL file: %s" % fileName
+			print("Failed to open MTL file: %s" % fileName)
 			return
 		for line in fileHandle:
 			# Parse command and data from each line
@@ -304,8 +304,8 @@ class WavefrontModel(AbstractModel):
 				elif command == 'f':
 
 					#if len(data) > 3:
-						#print "Sorry, only triangles are supported"
-						#print "Please triangulate the model before exporting"
+						#print("Sorry, only triangles are supported")
+						#print("Please triangulate the model before exporting")
 						#sys.exit(1)
 
 					if len(data) == 3:
@@ -368,12 +368,12 @@ class WavefrontModel(AbstractModel):
 							indices = (vi, ti, ni)
 							currentface.triIndices.append(indices)							
 
-		print "Model loaded"
-		print "Number vertices: %d" % len(self.vertices)
-		print "Number texCoords: %d" % len(self.texCoords)
-		print "Number normals: %d" % len(self.normals)
-		print "Number materials: %d" % len(self.materials)
-		print "Number faces: %d" % len(self.faces)
+		print("Model loaded")
+		print("Number vertices: %d" % len(self.vertices))
+		print("Number texCoords: %d" % len(self.texCoords))
+		print("Number normals: %d" % len(self.normals))
+		print("Number materials: %d" % len(self.materials))
+		print("Number faces: %d" % len(self.faces))
 
 if __name__ == "__main__":
 

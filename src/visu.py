@@ -33,14 +33,14 @@ class TextureCatalog(object):
 			self.catalog[nom] = texture
 			if alias != None :
 				self.catalog[alias] = self.catalog[nom]
-				print "@@" , self.catalog[alias]
+				print("@@" , self.catalog[alias])
 			return texture
 
 def charger_texture(nom,alias=None):
 	texture = TextureCatalog().loadTexture(nom)
 	if alias != None :
 		TextureCatalog().catalog[alias] = texture
-	print "@!!@ ", TextureCatalog().catalog.keys()
+	print("@!!@ ", TextureCatalog().catalog.keys())
 	return texture
 
 
