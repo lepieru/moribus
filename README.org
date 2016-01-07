@@ -1,0 +1,26 @@
+#+TITLE: Moribus README
+
+Moribus is a behavior simulator. It's a student project.
+
+* Dependencies
+
+  - Python 2.7
+  - pyglet
+
+* How to run it
+
+  - Go inside the =src= directory
+  - Run =sh Start.sh=
+
+* Commands
+
+  - View orientation : mouse plus left click
+  - Moves : arrow
+  - Stop the program : ESC
+
+* Exercice
+
+  - Création de la scène : dans le fichier =fabrique.py=, méthode fabriquer de la classe =Fabrique=
+  - Comportement des objets : dans le fichier =simu.py=
+  - Un nouveau comportement est obtenu en créant une sous-classe de la classe =Activite=
+  - Le comportement est alors essentiellement codé dans la méthode =actualiser(t, dt)= de cette sous-classe (voir les sous-classes =Fou= et =Vent=)
