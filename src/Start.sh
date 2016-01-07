@@ -1,0 +1,2 @@
+python -OO main.py
+

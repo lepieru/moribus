@@ -1,0 +1,23 @@
+
+
+# Les sommets
+
+s p00 passage 0 0 0
+s p01 passage 0 10 0
+s p02 passage 0 20 0
+
+s p10 passage 10 0 0
+s p11 passage 10 10 0
+s p12 passage 10 20 0
+
+s p20 passage 20 0 0
+s p21 passage 20 10 0
+s p22 passage 20 20 0
+
+
+# Les arcs
+
+a p00 p10
+a p10 p20
+a p20 p21
+a p21 p22
