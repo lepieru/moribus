@@ -1,0 +1,4 @@
+# Compiled Python
+src/*.pyc
+src/*.pyo
+src/*.pyd
