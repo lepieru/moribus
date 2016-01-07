@@ -2,3 +2,4 @@
 src/*.pyc
 src/*.pyo
 src/*.pyd
+src/__pycache__
