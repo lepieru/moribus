@@ -14,12 +14,12 @@ Moribus is a behavior simulator. It's a student project.
 * Commands
 
   - View orientation : mouse plus left click
-  - Moves : arrow
-  - Stop the program : ESC
+  - Moves : arrow keys
+  - Stop the program : escape key
 
 * Exercice
 
-  - Création de la scène : dans le fichier =fabrique.py=, méthode fabriquer de la classe =Fabrique=
-  - Comportement des objets : dans le fichier =simu.py=
-  - Un nouveau comportement est obtenu en créant une sous-classe de la classe =Activite=
-  - Le comportement est alors essentiellement codé dans la méthode =actualiser(t, dt)= de cette sous-classe (voir les sous-classes =Fou= et =Vent=)
+  - To create the scene : in =fabrique.py=, the =fabriquer= method of the =Fabrique= class
+  - Objects behavior : in =simu.py=
+  - A new behavior is obtained by creating a sub-class of =Activite=
+  - The behavior is then essentialy programmed in the =actualiser= method of this subsclass (see =Fou= and =Vent= sub-class)
