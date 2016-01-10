@@ -1,6 +1,6 @@
 run:
-	python -OO src/main.py
+	@ python -OO src/main.py
 
 clean:
-	rm -f src/*~ src/*.pyc src/*.pyo
-	rm -rf src/__pycache__
+	@ rm -f src/*~ src/*.pyc src/*.pyo
+	@ rm -rf src/__pycache__
