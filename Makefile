@@ -1,5 +1,5 @@
 run:
-	cd src ; python -OO main.py
+	python -OO src/main.py
 
 clean:
 	rm -f src/*~ src/*.pyc src/*.pyo

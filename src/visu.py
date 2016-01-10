@@ -180,9 +180,9 @@ class Panneau(Maillage):
     def __init__(self, **attributs):
         Maillage.__init__(self)
         self.visible = True
-        recto = attributs.get('recto', "../data/textures/acajou.png")
+        recto = attributs.get('recto', "data/textures/acajou.png")
         self.recto = TextureCatalog().loadTexture(recto)
-        verso = attributs.get('verso', "../data/textures/moquette.jpg")
+        verso = attributs.get('verso', "data/textures/moquette.jpg")
         self.verso = TextureCatalog().loadTexture(verso)
         self.largeur = attributs.get('largeur', 1.0)
         self.hauteur = attributs.get('hauteur', 1.0)
@@ -228,9 +228,9 @@ class Tableau(Maillage):
     def __init__(self, **attributs):
         Maillage.__init__(self)
         self.visible = True
-        recto = attributs.get('recto', "../data/textures/dante.jpg")
+        recto = attributs.get('recto', "data/textures/dante.jpg")
         self.recto = TextureCatalog().loadTexture(recto)
-        verso = attributs.get('verso', "../data/textures/dante.jpg")
+        verso = attributs.get('verso', "data/textures/dante.jpg")
         self.verso = TextureCatalog().loadTexture(verso)
         self.largeur = attributs.get('largeur', 1.0)
         self.hauteur = attributs.get('hauteur', 1.0)
@@ -277,7 +277,7 @@ class Mur(Maillage):
         Maillage.__init__(self)
         self.visible = True
         self.hauteur = attributs.get("hauteur", 2.5)
-        texture = attributs.get('texture', "../data/textures/dante.jpg")
+        texture = attributs.get('texture', "data/textures/dante.jpg")
         self.texture = TextureCatalog().loadTexture(texture)
         self.v = []
         self.parse(attributs.get("points", None))
@@ -326,7 +326,7 @@ class Obj(Maillage):
 
     def __init__(self, **attributs):
         Maillage.__init__(self)
-        self.url = attributs.get("url", "../data/obj/pingouin/p.obj")
+        self.url = attributs.get("url", "data/obj/pingouin/p.obj")
         self.model = wavefront.WavefrontModel()
         self.model.LoadFile(self.url)
 
@@ -339,7 +339,7 @@ class ObjY(Maillage):
 
     def __init__(self, **attributs):
         Maillage.__init__(self)
-        self.url = attributs.get("url", "../data/obj/pingouin/p.obj")
+        self.url = attributs.get("url", "data/obj/pingouin/p.obj")
         self.model = formes.wavefront.WavefrontModel()
         self.model.LoadFile(self.url)
 
@@ -358,7 +358,7 @@ class Sol(Maillage):
     def __init__(self, **attributs):
         Maillage.__init__(self)
         self.size = attributs.get('size', 500)
-        textureName = attributs.get('texture', '../data/textures/moquette.jpg')
+        textureName = attributs.get('texture', 'data/textures/moquette.jpg')
         self.texture = TextureCatalog().loadTexture(textureName)
         # self.facteurTexture = getVal(attr,float,"facteurTexture",1.0)
 
@@ -390,7 +390,7 @@ class Ciel(Maillage):
         Maillage.__init__(self)
         self.size = attributs.get('size', 500.0)
 
-        textureName = attributs.get('texture', '../data/skyboxes/ciel.jpg')
+        textureName = attributs.get('texture', 'data/skyboxes/ciel.jpg')
         image = pyglet.image.load(textureName)
         imageSeq = pyglet.image.ImageGrid(image, 3, 4)
         self.textureUP = imageSeq[9].get_texture()

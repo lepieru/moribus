@@ -9,8 +9,7 @@ Moribus is a behavior simulator. It's a student project.
 
 * How to run it
 
-  - Go inside the =src= directory
-  - Run =sh Start.sh=
+  - Run =make run=, or more shortly =make=
 
 * Commands
 
