@@ -6,6 +6,7 @@ Moribus is a behavior simulator. It's a student project.
 
   - Python 2.7+
   - pyglet
+  - pillow
 
 * How to run it
 
