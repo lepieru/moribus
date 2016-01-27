@@ -33,32 +33,31 @@ class Monde:
     def enregistrer(self, nom, obj):
         self.annuaire[nom] = obj
 
-    def d(self):
+    def calculerD(self):
         """
-        Retourne la distance entre le pingouin et l'avatar
+        Calcul la distance entre le pingouin et l'avatar
         """
-        return self.camera.repere.o.distance(self.pingouin.repere.o)
+        self.d = self.camera.repere.o.distance(self.pingouin.repere.o)
 
-    def a(self):
+    def calculerA(self):
         """
-        Retourne l'angle entre la caméra et le pingouin
+        Calcul l'angle entre la caméra et le pingouin
         """
         vp = geo.Vec3((0.0, 0.0, 0.0))
         vp.moins(self.pingouin.repere.o, self.camera.repere.o)
         camera_angle = self.camera.repere.angle
         va = geo.Vec3((math.cos(camera_angle), math.sin(camera_angle), 0))
-        return vp.angleEntre(va)
+        self.a = vp.angleEntre(va)
 
-    def v(self):
+    def calculerV(self):
         """
-        Retourne la vitesse de l'avatar
+        Calcul la vitesse de l'avatar
         """
         if not hasattr(self, "anciennePosition"):
             self.anciennePosition = geo.Vec3((0.0, 0.0, 0.0))
             self.anciennePosition.copier(self.camera.repere.o)
-        self.vitesse = self.camera.repere.o.distance(self.anciennePosition) * 20
+        self.v = self.camera.repere.o.distance(self.anciennePosition) * 20
         self.anciennePosition.copier(self.camera.repere.o)
-        return self.vitesse
 
 
 class Activite:
