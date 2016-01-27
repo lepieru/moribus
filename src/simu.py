@@ -33,6 +33,11 @@ class Monde:
     def enregistrer(self, nom, obj):
         self.annuaire[nom] = obj
 
+    def d(self):
+        """
+        Retourne la distance entre le pingouin et l'avatar
+        """
+        return self.camera.repere.o.distance(self.pingouin.repere.o)
 
 class Activite:
 

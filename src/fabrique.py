@@ -38,3 +38,5 @@ class Fabrique:
         une_activite = simu.Fou(id="act-02", objet=le_pingouin)
         une_activite.start()
         self.monde.ajouter(activite=une_activite)
+
+        self.monde.pingouin = le_pingouin
