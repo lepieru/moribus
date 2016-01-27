@@ -29,9 +29,9 @@ class Monde:
         self.afficherEtat()
 
     def afficherEtat(self):
-        print("Distance: ", round(self.d), "métre(s)")
-        print("Angle:    ", round(self.a * 180 / math.pi), "°")
-        print("Vitesse:  ", round(self.v), "km/h")
+        print("(d) Distance: ", round(self.d), "métre(s)")
+        print("(a) Angle:    ", round(self.a * 180 / math.pi), "°")
+        print("(v) Vitesse:  ", round(self.v), "km/h")
         print("------------------------")
 
     def ajouter(self, decor=None, activite=None):
