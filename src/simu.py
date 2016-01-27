@@ -21,8 +21,18 @@ class Monde:
 
     def actualiser(self, dt):
         self.horloge += dt
+        self.calculerD()
+        self.calculerA()
+        self.calculerV()
         for x in self.activites:
             x.actualiser(self.horloge, dt)
+        self.afficherEtat()
+
+    def afficherEtat(self):
+        print("Distance: ", round(self.d), "métre(s)")
+        print("Angle:    ", round(self.a * 180 / math.pi), "°")
+        print("Vitesse:  ", round(self.v), "km/h")
+        print("------------------------")
 
     def ajouter(self, decor=None, activite=None):
         if decor != None:
