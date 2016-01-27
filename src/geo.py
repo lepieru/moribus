@@ -69,6 +69,9 @@ class Vec3:
     def produitScalaire(self, v):
         return self.x * v.x + self.y * v.y + self.z * v.z
 
+    def produitScalaireNoZ(self, v):
+        return self.x * v.x + self.y * v.y
+
     def distance(self, v):
         x, y, z = v.getCoordonnees()
         return math.sqrt((self.x - x) * (self.x - x) + (self.y - y) * (self.y - y) + (self.z - z) * (self.z - z))
@@ -77,6 +80,11 @@ class Vec3:
         l = math.sqrt(self.x * self.x +
                       self.y * self.y +
                       self.z * self.z)
+        return l
+
+    def normeNoZ(self):
+        l = math.sqrt(self.x * self.x +
+                      self.y * self.y)
         return l
 
     def normer(self):
@@ -89,10 +97,10 @@ class Vec3:
             self.scale(lmax / l)
 
     def angleEntre(self, vb):
-        arccosInput = self.produitScalaire(vb) / self.norme() / vb.norme()
-        arccosInput = 1.0 if arccosInput > 1.0 else arccosInput
-        arccosInput = -1.0 if arccosInput < -1.0 else arccosInput
-        return math.acos(arccosInput)
+        arccos = self.produitScalaireNoZ(vb) / self.normeNoZ() / vb.normeNoZ()
+        arccos = 1.0 if arccos > 1.0 else arccos
+        arccos = -1.0 if arccos < -1.0 else arccos
+        return math.acos(arccos)
 
 
 class Repere:
