@@ -49,6 +49,18 @@ class Monde:
         va = geo.Vec3((math.cos(camera_angle), math.sin(camera_angle), 0))
         return vp.angleEntre(va)
 
+    def v(self):
+        """
+        Retourne la vitesse de l'avatar
+        """
+        if not hasattr(self, "anciennePosition"):
+            self.anciennePosition = geo.Vec3((0.0, 0.0, 0.0))
+            self.anciennePosition.copier(self.camera.repere.o)
+        self.vitesse = self.camera.repere.o.distance(self.anciennePosition) * 20
+        self.anciennePosition.copier(self.camera.repere.o)
+        return self.vitesse
+
+
 class Activite:
 
     def __init__(self, id=None, objet=None):
