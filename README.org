@@ -26,7 +26,7 @@ Moribus is a behavior simulator. It's a student project.
   - Curieux : il va venir examiner l'avatar de l'utilisateur
   - Posé : il se maintient à une distance neutre de l'utilisateur
 
-Les paramètres dont dépendront le comprtement de l'acteur virtuel sont les suivants :
+Les paramètres dont dépendront le comportement de l'acteur virtuel sont les suivants :
   - =d= : la distance de l'avatar de l'utilisateur à l'acteur virtuel
   - =a= : l'angle, la direction, sous lequel l'avatar de l'utilisateur s'approche de l'acteur virtuel
   - =v= : vitesse de déplacement de l'avatar de l'utilisateur
