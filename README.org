@@ -18,7 +18,32 @@ Moribus is a behavior simulator. It's a student project.
   - Moves : arrow keys
   - Stop the program : escape key
 
-* Exercice
+* Exercice [FR]
+
+  L'objet du travail est la simulation du comportement d'un acteur virtuel (représenté par un pingouin) et de l'avatar de l'utilisateur (sa représentation dans le monde virtuel) qui s'en approche. Il s'agit de donner à cet acteur virtuel un comportement parmi les comportements suivants :
+  - Effrayé : il s'éloigne de l'avatar de l'utilisateur
+  - Aggressif : il attaque l'avatar de l'utilisateur
+  - Curieux : il va venir examiner l'avatar de l'utilisateur
+  - Posé : il se maintient à une distance neutre de l'utilisateur
+
+Les paramètres dont dépendront le comprtement de l'acteur virtuel sont les suivants :
+  - =d= : la distance de l'avatar de l'utilisateur à l'acteur virtuel
+  - =a= : l'angle, la direction, sous lequel l'avatar de l'utilisateur s'approche de l'acteur virtuel
+  - =v= : vitesse de déplacement de l'avatar de l'utilisateur
+
+** Question 1
+
+   Proposez les procédures et structures permettant d'obtenir en temps réel les mesures =d=, =a= et =v=.
+
+** Question 2
+
+   On suppose un acteur virtuel qui puisse se trouver dans un des 4 états décrits ci-dessus. Mettez en œuvre les procédures et structures permettant à l'acteur virtuel de suivre ce comportement quand l'avatar de l'utilisateur évolu autour de lui. On supposera que le comportement est defini aléatoirement en début de session et ne change jamais après.
+
+** Question 3
+
+   Proposer des règles de transition entre états. Ces règles doivent tenir compte du temps, du hasard et de la perception qu'a l'acteur virtuel de l'avatar de l'utilisateur.
+
+* Tips
 
   - To create the scene : in =fabrique.py=, the =fabriquer= method of the =Fabrique= class
   - Objects behavior : in =simu.py=
