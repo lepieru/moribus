@@ -39,6 +39,16 @@ class Monde:
         """
         return self.camera.repere.o.distance(self.pingouin.repere.o)
 
+    def a(self):
+        """
+        Retourne l'angle entre la caméra et le pingouin
+        """
+        vp = geo.Vec3((0.0, 0.0, 0.0))
+        vp.moins(self.pingouin.repere.o, self.camera.repere.o)
+        camera_angle = self.camera.repere.angle
+        va = geo.Vec3((math.cos(camera_angle), math.sin(camera_angle), 0))
+        return vp.angleEntre(va)
+
 class Activite:
 
     def __init__(self, id=None, objet=None):

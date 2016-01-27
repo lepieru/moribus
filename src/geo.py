@@ -88,6 +88,12 @@ class Vec3:
         if l > lmax:
             self.scale(lmax / l)
 
+    def angleEntre(self, vb):
+        arccosInput = self.produitScalaire(vb) / self.norme() / vb.norme()
+        arccosInput = 1.0 if arccosInput > 1.0 else arccosInput
+        arccosInput = -1.0 if arccosInput < -1.0 else arccosInput
+        return math.acos(arccosInput)
+
 
 class Repere:
 
