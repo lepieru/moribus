@@ -142,6 +142,28 @@ class Curieux(Activite):
                     self.objet.avancer(0.5)
 
 
+class Pose(Activite):
+
+    def actualiser(self, t, dt):
+        if self.actif:
+            if self.monde.d < 5:
+                self.eloigne()
+            else:
+                x = random.random()
+                if x < 0.01:
+                    self.tourne()
+
+    def eloigne(self):
+        angle = self.monde.a + math.pi
+        self.objet.repere.orienter(angle)
+        self.objet.avancer(0.1)
+
+    def tourne(self):
+        x = random.random()
+        angle = x * math.pi * 2
+        self.objet.repere.orienter(angle)
+
+
 class Fou(Activite):
 
     def __init__(self, id=None, objet=None, monde=None):
