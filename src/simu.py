@@ -110,6 +110,26 @@ class Effaye(Activite):
             self.objet.avancer(0.1)
 
 
+class Aggressif(Activite):
+
+    def actualiser(self, t, dt):
+        if self.actif:
+            if self.monde.d > 2:
+                angle = self.monde.a
+                self.objet.repere.orienter(angle)
+                self.objet.avancer(0.1)
+            else:
+                x = random.random()
+                if x < 0.4:
+                    self.objet.avancer(4.0 * dt)
+                elif x < 0.6:
+                    self.objet.tourner(math.pi / 4.0)
+                elif x < 0.8:
+                    self.objet.tourner(-math.pi / 3.0)
+                else:
+                    pass
+
+
 class Fou(Activite):
 
     def __init__(self, id=None, objet=None, monde=None):
