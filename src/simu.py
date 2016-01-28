@@ -174,6 +174,10 @@ class Pose(Activite):
         angle = random.random() * math.pi * 2
         self.objet.repere.orienter(angle)
 
+    def start(self):
+        self.objet.maillage = visu.Obj(url="data/obj/pingouin/p.obj")
+        Activite.start(self)
+
 
 class Fou(Activite):
 
