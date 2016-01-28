@@ -29,8 +29,8 @@ class Monde:
         self.afficherEtat()
 
     def afficherEtat(self):
-        print("(d) Distance: ", round(self.d), "métre(s)")
-        print("(a) Angle:    ", round(self.a * 180 / math.pi), "°")
+        print("(d) Distance: ", round(self.d), "metre(s)")
+        print("(a) Angle:    ", round(self.a * 180 / math.pi), "degre(s)")
         print("(v) Vitesse:  ", round(self.v), "km/h")
         print("------------------------")
 
@@ -51,7 +51,7 @@ class Monde:
 
     def calculerA(self):
         """
-        Calcul l'angle entre la caméra et le pingouin
+        Calcul l'angle entre le pingouin et la camera de l'avatar
         """
         vp = geo.Vec3((0.0, 0.0, 0.0))
         vp.moins(self.pingouin.repere.o, self.camera.repere.o)
