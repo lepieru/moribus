@@ -26,7 +26,7 @@ class Monde:
         self.calculerACam()
         self.calculerV()
         if not hasattr(self, "activiteCourante"):
-            self.changeActivite("curieux")
+            self.changeActivite("pose")
         self.annuaire[self.activiteCourante].actualiser(self.horloge, dt)
         self.afficherEtat()
         self.changeActivitePeutEtre()
@@ -60,17 +60,7 @@ class Monde:
         return self.horloge - self.dernierChangementActivite
 
     def changeActivitePeutEtre(self):
-        x = random.random()
-        if x < 0.01:
-            self.changeActivite("curieux")
-        elif x < 0.02:
-            self.changeActivite("effraye")
-        elif x < 0.03:
-            self.changeActivite("aggressif")
-        elif x < 0.04:
-            self.changeActivite("pose")
-        else:
-            pass
+        self.annuaire[self.activiteCourante].changePeutEtre()
 
     def calculerD(self):
         """
@@ -128,6 +118,9 @@ class Activite:
         if self.actif:
             print("ACTIVITE : ", t, " - ", dt)
 
+    def changePeutEtre(self):
+        pass
+
 
 class Effaye(Activite):
 
@@ -141,12 +134,16 @@ class Effaye(Activite):
         self.objet.maillage = visu.Obj(url="data/avatars/vert.obj")
         Activite.start(self)
 
+    def changePeutEtre(self):
+        if self.monde.d > 15:
+            self.monde.changeActivite('pose')
+
 
 class Aggressif(Activite):
 
     def actualiser(self, t, dt):
         if self.actif:
-            if self.monde.d > 2:
+            if self.monde.d > 2.2:
                 angle = self.monde.a
                 self.objet.repere.orienter(angle)
                 self.objet.avancer(0.1)
@@ -165,6 +162,12 @@ class Aggressif(Activite):
         self.objet.maillage = visu.Obj(url="data/avatars/rouge.obj")
         Activite.start(self)
 
+    def changePeutEtre(self):
+        if self.monde.d > 2.2:
+            if self.monde.activiteDepuis() > 10:
+                self.monde.changeActivite('pose')
+            elif self.monde.d > 15:
+                self.monde.changeActivite('pose')
 
 class Curieux(Activite):
 
@@ -173,14 +176,21 @@ class Curieux(Activite):
             angle = self.monde.a
             self.objet.repere.orienter(angle)
             if self.monde.d > 5:
-                x = random.random()
-                if x < 0.1:
-                    self.objet.avancer(0.5)
+                self.objet.avancer(0.05)
 
     def start(self):
         self.objet.maillage = visu.Obj(url="data/avatars/bleu.obj")
         Activite.start(self)
 
+    def changePeutEtre(self):
+        if self.monde.activiteDepuis() > 15:
+            self.monde.changeActivite('pose')
+        elif self.monde.d < 2:
+            x = random.random()
+            if x < 0.5:
+                self.monde.changeActivite('aggressif')
+            else:
+                self.monde.changeActivite('effraye')
 
 class Pose(Activite):
 
@@ -205,6 +215,15 @@ class Pose(Activite):
         self.objet.maillage = visu.Obj(url="data/obj/pingouin/p.obj")
         Activite.start(self)
 
+    def changePeutEtre(self):
+        if self.monde.d < 3:
+            x = random.random()
+            if x < 0.5:
+                self.monde.changeActivite('aggressif')
+            else:
+                self.monde.changeActivite('effraye')
+        elif self.monde.d > 20:
+            self.monde.changeActivite('curieux')
 
 class Fou(Activite):
 
