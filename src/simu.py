@@ -25,14 +25,18 @@ class Monde:
         self.calculerA()
         self.calculerACam()
         self.calculerV()
-        for x in self.activites:
-            x.actualiser(self.horloge, dt)
+        if not hasattr(self, "activiteCourante"):
+            self.changeActivite("curieux")
+        self.annuaire[self.activiteCourante].actualiser(self.horloge, dt)
         self.afficherEtat()
+        self.changeActivitePeutEtre()
 
     def afficherEtat(self):
-        print("(d) Distance: ", round(self.d), "metre(s)")
-        print("(a) Angle:    ", round(self.a * 180 / math.pi), "degre(s)")
-        print("(v) Vitesse:  ", round(self.v), "km/h")
+        print("Activite courante:       ", self.activiteCourante)
+        print("Activite courante depuis: %.1f" % self.activiteDepuis())
+        print("(d) Distance:            ", round(self.d), "metre(s)")
+        print("(a) Angle:               ", round(self.a * 180 / math.pi), "degre(s)")
+        print("(v) Vitesse:             ", round(self.v), "km/h")
         print("------------------------")
 
     def ajouter(self, decor=None, activite=None):
@@ -40,9 +44,33 @@ class Monde:
             self.decor.append(decor)
         if activite != None:
             self.activites.append(activite)
+            self.enregistrer(activite.id, activite)
 
     def enregistrer(self, nom, obj):
         self.annuaire[nom] = obj
+
+    def changeActivite(self, activiteId):
+        for activite in self.annuaire:
+            self.annuaire[activite].stop()
+        self.activiteCourante = activiteId
+        self.dernierChangementActivite = self.horloge
+        self.annuaire[activiteId].start()
+
+    def activiteDepuis(self):
+        return self.horloge - self.dernierChangementActivite
+
+    def changeActivitePeutEtre(self):
+        x = random.random()
+        if x < 0.01:
+            self.changeActivite("curieux")
+        elif x < 0.02:
+            self.changeActivite("effraye")
+        elif x < 0.03:
+            self.changeActivite("aggressif")
+        elif x < 0.04:
+            self.changeActivite("pose")
+        else:
+            pass
 
     def calculerD(self):
         """
@@ -161,8 +189,7 @@ class Pose(Activite):
             if self.monde.d < 5:
                 self.eloigne()
             else:
-                x = random.random()
-                if x < 0.01:
+                if random.random() < 0.01:
                     self.tourne()
 
     def eloigne(self):
