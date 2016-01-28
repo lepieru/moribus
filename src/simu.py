@@ -171,8 +171,7 @@ class Pose(Activite):
         self.objet.avancer(0.1)
 
     def tourne(self):
-        x = random.random()
-        angle = x * math.pi * 2
+        angle = random.random() * math.pi * 2
         self.objet.repere.orienter(angle)
 
 
