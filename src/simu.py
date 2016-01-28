@@ -101,6 +101,15 @@ class Activite:
             print("ACTIVITE : ", t, " - ", dt)
 
 
+class Effaye(Activite):
+
+    def actualiser(self, t, dt):
+        if self.actif:
+            angle = self.monde.a + math.pi
+            self.objet.repere.orienter(angle)
+            self.objet.avancer(0.1)
+
+
 class Fou(Activite):
 
     def __init__(self, id=None, objet=None, monde=None):
