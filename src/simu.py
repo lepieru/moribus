@@ -23,6 +23,7 @@ class Monde:
         self.horloge += dt
         self.calculerD()
         self.calculerA()
+        self.calculerACam()
         self.calculerV()
         for x in self.activites:
             x.actualiser(self.horloge, dt)
@@ -49,15 +50,23 @@ class Monde:
         """
         self.d = self.camera.repere.o.distance(self.pingouin.repere.o)
 
-    def calculerA(self):
+    def calculerACam(self):
         """
         Calcul l'angle entre le pingouin et la camera de l'avatar
         """
         vp = geo.Vec3((0.0, 0.0, 0.0))
         vp.moins(self.pingouin.repere.o, self.camera.repere.o)
         camera_angle = self.camera.repere.angle
-        va = geo.Vec3((math.cos(camera_angle), math.sin(camera_angle), 0))
-        self.a = vp.angleEntre(va)
+        va = geo.Vec3((math.cos(camera_angle), math.sin(camera_angle), 0.0))
+        self.aCam = va.angleEntre(vp)
+
+    def calculerA(self):
+        """
+        Calcul l'angle entre le pingouin et l'avatar
+        """
+        xp, yp, zp = self.pingouin.repere.o.getCoordonnees()
+        xc, yc, zc = self.camera.repere.o.getCoordonnees()
+        self.a = math.atan2(yc - yp, xc - xp)
 
     def calculerV(self):
         """
@@ -72,10 +81,11 @@ class Monde:
 
 class Activite:
 
-    def __init__(self, id=None, objet=None):
+    def __init__(self, id=None, objet=None, monde=None):
         self.id = id
         self.actif = False
         self.objet = objet
+        self.monde = monde
 
     def start(self):
         self.actif = True
@@ -93,8 +103,8 @@ class Activite:
 
 class Fou(Activite):
 
-    def __init__(self, id=None, objet=None):
-        Activite.__init__(self, id, objet)
+    def __init__(self, id=None, objet=None, monde=None):
+        Activite.__init__(self, id, objet, monde)
 
     def actualiser(self, t, dt):
         if self.objet != None:
