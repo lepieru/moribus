@@ -130,6 +130,18 @@ class Aggressif(Activite):
                     pass
 
 
+class Curieux(Activite):
+
+    def actualiser(self, t, dt):
+        if self.actif:
+            angle = self.monde.a
+            self.objet.repere.orienter(angle)
+            if self.monde.d > 5:
+                x = random.random()
+                if x < 0.1:
+                    self.objet.avancer(0.5)
+
+
 class Fou(Activite):
 
     def __init__(self, id=None, objet=None, monde=None):
