@@ -109,6 +109,10 @@ class Effaye(Activite):
             self.objet.repere.orienter(angle)
             self.objet.avancer(0.1)
 
+    def start(self):
+        self.objet.maillage = visu.Obj(url="data/avatars/vert.obj")
+        Activite.start(self)
+
 
 class Aggressif(Activite):
 
@@ -129,6 +133,10 @@ class Aggressif(Activite):
                 else:
                     pass
 
+    def start(self):
+        self.objet.maillage = visu.Obj(url="data/avatars/rouge.obj")
+        Activite.start(self)
+
 
 class Curieux(Activite):
 
@@ -140,6 +148,10 @@ class Curieux(Activite):
                 x = random.random()
                 if x < 0.1:
                     self.objet.avancer(0.5)
+
+    def start(self):
+        self.objet.maillage = visu.Obj(url="data/avatars/bleu.obj")
+        Activite.start(self)
 
 
 class Pose(Activite):
