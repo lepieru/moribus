@@ -31,12 +31,13 @@ class Fabrique:
         le_pingouin.orienter(45.0 * math.pi / 180.0)
         self.monde.ajouter(decor=le_pingouin)
 
-        une_activite = simu.Activite(id="act-01")
-        # une_activite.start()
+        une_activite = simu.Effaye(id="effraye", objet=le_pingouin, monde=self.monde)
         self.monde.ajouter(activite=une_activite)
-
-        une_activite = simu.Fou(id="act-02", objet=le_pingouin)
-        une_activite.start()
+        une_activite = simu.Aggressif(id="aggressif", objet=le_pingouin, monde=self.monde)
+        self.monde.ajouter(activite=une_activite)
+        une_activite = simu.Curieux(id="curieux", objet=le_pingouin, monde=self.monde)
+        self.monde.ajouter(activite=une_activite)
+        une_activite = simu.Pose(id="pose", objet=le_pingouin, monde=self.monde)
         self.monde.ajouter(activite=une_activite)
 
         self.monde.pingouin = le_pingouin
