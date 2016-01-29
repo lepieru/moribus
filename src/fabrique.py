@@ -27,7 +27,7 @@ class Fabrique:
 
         le_pingouin = visu.Objet(maillage=visu.Obj(
             url="data/obj/pingouin/p.obj"))
-        le_pingouin.placer(geo.Vec3((-2.0, 3.0, 0.0)))
+        le_pingouin.placer(geo.Vec3((-1.0, 0.0, 0.0)))
         le_pingouin.orienter(45.0 * math.pi / 180.0)
         self.monde.ajouter(decor=le_pingouin)
 
