@@ -23,7 +23,7 @@ class Monde:
         self.horloge += dt
         self.calculerD()
         self.calculerA()
-        self.calculerACam()
+        # self.calculerACam()
         self.calculerV()
         if not hasattr(self, "activiteCourante"):
             self.changeActivite("pose")
@@ -50,8 +50,8 @@ class Monde:
         self.annuaire[nom] = obj
 
     def changeActivite(self, activiteId):
-        for activite in self.annuaire:
-            self.annuaire[activite].stop()
+        if hasattr(self, "activiteCourante"):
+            self.annuaire[self.activiteCourante].stop()
         self.activiteCourante = activiteId
         self.dernierChangementActivite = self.horloge
         self.annuaire[activiteId].start()
@@ -115,8 +115,7 @@ class Activite:
         self.actif = False
 
     def actualiser(self, t, dt):
-        if self.actif:
-            print("ACTIVITE : ", t, " - ", dt)
+        pass
 
     def changePeutEtre(self):
         pass
@@ -155,19 +154,18 @@ class Aggressif(Activite):
                     self.objet.tourner(math.pi / 4.0)
                 elif x < 0.8:
                     self.objet.tourner(-math.pi / 3.0)
-                else:
-                    pass
 
     def start(self):
         self.objet.maillage = visu.Obj(url="data/avatars/rouge.obj")
         Activite.start(self)
 
     def changePeutEtre(self):
-        if self.monde.d > 2.2:
+        if self.monde.d > 4:
             if self.monde.activiteDepuis() > 10:
                 self.monde.changeActivite('pose')
             elif self.monde.d > 15:
                 self.monde.changeActivite('pose')
+
 
 class Curieux(Activite):
 
@@ -186,8 +184,7 @@ class Curieux(Activite):
         if self.monde.activiteDepuis() > 15:
             self.monde.changeActivite('pose')
         elif self.monde.d < 2:
-            x = random.random()
-            if x < 0.5:
+            if random.random() < 0.5:
                 self.monde.changeActivite('aggressif')
             else:
                 self.monde.changeActivite('effraye')
@@ -196,7 +193,7 @@ class Pose(Activite):
 
     def actualiser(self, t, dt):
         if self.actif:
-            if self.monde.d < 5:
+            if self.monde.d < 4:
                 self.eloigne()
             else:
                 if random.random() < 0.01:
@@ -224,20 +221,3 @@ class Pose(Activite):
                 self.monde.changeActivite('effraye')
         elif self.monde.d > 20:
             self.monde.changeActivite('curieux')
-
-class Fou(Activite):
-
-    def __init__(self, id=None, objet=None, monde=None):
-        Activite.__init__(self, id, objet, monde)
-
-    def actualiser(self, t, dt):
-        if self.objet != None:
-            x = random.random()
-            if x < 0.4:
-                self.objet.avancer(4.0 * dt)
-            elif x < 0.6:
-                self.objet.tourner(math.pi / 4.0)
-            elif x < 0.8:
-                self.objet.tourner(-math.pi / 3.0)
-            else:
-                pass
