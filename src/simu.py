@@ -213,11 +213,11 @@ class Pose(Activite):
         Activite.start(self)
 
     def changePeutEtre(self):
-        if self.monde.d < 3:
-            x = random.random()
-            if x < 0.5:
-                self.monde.changeActivite('aggressif')
-            else:
-                self.monde.changeActivite('effraye')
-        elif self.monde.d > 20:
-            self.monde.changeActivite('curieux')
+        if self.monde.activiteDepuis() > 1:
+            if self.monde.d < 3:
+                if random.random() < 0.5:
+                    self.monde.changeActivite('aggressif')
+                else:
+                    self.monde.changeActivite('effraye')
+            elif self.monde.d > 20:
+                self.monde.changeActivite('curieux')
