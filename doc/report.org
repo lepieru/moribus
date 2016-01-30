@@ -1,0 +1,31 @@
+#+TITLE: Rapport du projet de CRV
+#+AUTHOR: Hernan David Torres Cubillos et Pierre Le Gall
+
+#+OPTIONS: toc:nil
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [10pt, a4paper, margin=1in]
+#+LATEX_HEADER: \usepackage[margin=2cm]{geometry}
+
+* Question 1
+
+  Les méthodes calculant =d=, =a= et =v= sont respectivement =calculerD=, =calculerA= et =calculerV= de la classe =Monde=. Elles mettent à jour les attributs =d=, =a= et =v= situés dans le monde. Elles sont appelées lors de l'actualisation du monde.
+
+* Question 2
+
+  Les comportements suivant sont définis dans les sous-classes de =Activite= :
+
+  - *Effrayé* (vert) : Le manchot part en direction opposé à la notre. La classe =Effraye= simule ce comportement.
+  - *Aggressif* (rouge) : Le manchot fonce vers notre avatar. La classe =Aggressif= simule ce comportement.
+  - *Curieux* (bleu) : Le manchot s'avance doucement vers notre avatar. Il garde tout de même ses distances. La classe =Curieux= simule ce comportement.
+  - *Posé* (noir) : Le manchot reste en place, changeant tout de même son angle de vision. Il ne souhaite pas que l'on approche trop de lui : si l'on est trop proche, il s'éloigne. La classe =Pose= simule ce comportement.
+
+* Question 3
+
+  La figure [[Behavior-Graph]] montre les transitions possibles entre les comportements. Les conditions de transition sont définis dans la méthode =changePeutEtre= dans chacune des activités. Elle est appelée à chaque tic d'horloge sur l'activité courante.
+
+  #+NAME: Behavior-Graph
+  #+CAPTION: Graphe des transitions entre les comportements
+  #+ATTR_LATEX: :width 7cm
+  [[./pictures/Behaviors-Graph.png]]
+
+  Si l'on s'approche de trop quand il est posé ou curieux, on risque de l'effrayer ou de l'énerver. Il faut que l'on s'éloigne pour qu'il se calme. Si l'on s'éloigne beaucoup, il devient curieux et se rapproche.
